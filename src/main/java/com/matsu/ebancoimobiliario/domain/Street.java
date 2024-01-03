@@ -1,15 +1,13 @@
 package com.matsu.ebancoimobiliario.domain;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Street extends Property{
+public class Street extends Property {
 
     Integer rentalAmount;
     Integer rentalOneHouseAmount;
@@ -22,10 +20,11 @@ public class Street extends Property{
     Integer buildingsMade;
 
 
-    public void addBuildingsMade(){
+    public void addBuildingsMade() {
         this.buildingsMade++;
     }
-    public void removeBuildingsMade(){
+
+    public void removeBuildingsMade() {
         this.buildingsMade--;
     }
 
