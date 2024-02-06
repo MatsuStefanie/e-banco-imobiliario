@@ -1,5 +1,6 @@
 package com.matsu.ebancoimobiliario.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,12 +27,15 @@ public class Player {
     private Integer id;
 
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Account bankAccount;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Street> streets;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Stocks> stocks;
 
 }
