@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("bank")
@@ -20,6 +22,11 @@ public class BankController {
 
     private final BankerService bankerService;
     private final PlayerService playerService;
+
+    @GetMapping
+    public ResponseEntity<List<Player>> findPlayers() {
+        return ResponseEntity.ok(playerService.findAll());
+    }
 
     @GetMapping(path = "/{idPlayer}")
     public ResponseEntity<Player> getPlayer(@PathVariable int idPlayer) {
